@@ -5,3 +5,7 @@ data ZZ : Type where
 
 nat2ZZ : Nat -> ZZ
 nat2ZZ x = MZ x Z
+
+ZZero : ZZ
+ZZero = MZ 0 0
+
