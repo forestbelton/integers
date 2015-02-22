@@ -29,3 +29,16 @@ ZPlusAssociative (MZ a b) (MZ c d) (MZ e f) =
   rewrite plusAssociative a c e in
   rewrite plusAssociative b d f in
     Refl
+
+ZNeg : ZZ -> ZZ
+ZNeg (MZ a b) = MZ b a
+
+ZPlusNegInverseL : (x : ZZ) -> ZEq (ZPlus x (ZNeg x)) ZZero
+ZPlusNegInverseL (MZ a b) =
+  rewrite plusCommutative a b in
+    Refl
+
+ZPlusNegInverseR : (x : ZZ) -> ZEq (ZPlus (ZNeg x) x) ZZero
+ZPlusNegInverseR (MZ a b) =
+  rewrite plusCommutative a b in
+    Refl
