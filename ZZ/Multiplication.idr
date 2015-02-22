@@ -30,3 +30,13 @@ ZMultZeroRightZero : (x : ZZ) -> ZEq (ZMult x ZZero) ZZero
 ZMultZeroRightZero (MZ a b) =
   rewrite multZeroRightZero a in
     Refl
+
+ZMultCommutative : (x, y : ZZ) -> ZEq (ZMult x y) (ZMult y x)
+ZMultCommutative (MZ a b) (MZ c d) =
+  rewrite plusCommutative (a * c + b * d) (c * b + d * a) in
+  rewrite plusCommutative (c * b) (d * a) in
+  rewrite multCommutative d a in
+  rewrite multCommutative c b in
+  rewrite multCommutative a c in
+  rewrite multCommutative d b in
+    Refl
